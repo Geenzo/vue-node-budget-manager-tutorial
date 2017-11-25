@@ -29,5 +29,12 @@
   "bugs": {
     "url": "https://github.com/Geenzo/vue-node-budget-manager-tutorial/issues"
   },
-  "homepage": "https://github.com/Geenzo/vue-node-budget-manager-tutorial#readme"
+  "homepage": "https://github.com/Geenzo/vue-node-budget-manager-tutorial#readme",
+  "_moduleAliases": {
+    "@root": ".",
+    "@BudgetManager": "./services/BudgetManagerAPI",
+    "@BudgetManagerModels":"./services/BudgetManagerAPI/app/models",
+    "@BudgetManagerAPI":"./services/BudgetManagerAPI/config/app.js",
+    "@config": "./services/BudgetManagerAPI/config/index.js"
+  },
 }
