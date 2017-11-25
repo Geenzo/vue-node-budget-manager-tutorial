@@ -1,0 +1,33 @@
+{
+  "name": "budget_manager",
+  "version": "0.0.1",
+  "description": "Budget Manager app using Vue.js and Node",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "module-alias": "^2.0.3",
+    "morgan": "^1.9.0",
+    "mongoose": "^4.13.5",
+    "passport-jwt": "^3.0.1",
+    "passport": "^0.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geenzo/vue-node-budget-manager-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geenzo/vue-node-budget-manager-tutorial/issues"
+  },
+  "homepage": "https://github.com/Geenzo/vue-node-budget-manager-tutorial#readme"
+}
