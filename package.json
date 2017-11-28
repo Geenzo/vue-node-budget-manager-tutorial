@@ -36,5 +36,5 @@
     "@BudgetManagerModels":"./services/BudgetManagerAPI/app/models",
     "@BudgetManagerAPI":"./services/BudgetManagerAPI/config/app.js",
     "@config": "./services/BudgetManagerAPI/config/index.js"
-  },
+  }
 }
