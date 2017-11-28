@@ -35,3 +35,14 @@ api.login = (User) => (req, res) => {
     }
   });
 }
+
+api.verify = (headers) => {
+  if (headers && headers.authorization) {
+    const split = headers.authorization.split(' ');
+
+    if (split.length === 2) return split[1];
+    else return null;
+  } else return null;
+}
+
+module.exports = api;
