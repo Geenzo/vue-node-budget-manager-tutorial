@@ -4,5 +4,4 @@ const mongoose = require('mongoose'),
 const models = {
   User: mongoose.model('User')
 }
-
-module.export = models;
+module.exports = models;

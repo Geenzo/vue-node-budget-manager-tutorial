@@ -11,9 +11,7 @@ const Schema = mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-
-  clients: [{}]
+  }
 });
 
 Schema.pre('save', function(next) {
@@ -30,12 +28,10 @@ Schema.pre('save', function(next) {
         next();
       });
     });
-  } else {
-    return next();
-  }
+  } else return next();
 });
 
-Schema.methods.comparePasswords = function(password, callback) {
+Schema.methods.comparePassword = function(password, callback) {
   bcrypt.compare(password, this.password, (error, matches) => {
     if (error) return callback(error);
     callback(null, matches);
