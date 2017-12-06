@@ -63,4 +63,4 @@ export default {
     return `Bearer ${context.$cookie.get('token')}`;
   },
 
-}
+};

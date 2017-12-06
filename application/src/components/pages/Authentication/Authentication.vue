@@ -94,3 +94,26 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "./../../../assets/styles";
+
+  .l-auth {
+    background-color: $background-color;
+    padding: 15px;
+    margin: 45px auto;
+    min-width: 272px;
+    max-width: 320px;
+    animation: bounceIn 1s forwards ease;
+  }
+
+  .l-signup {
+    background-color: $background-color;
+    padding: 15px;
+    margin: 45px auto;
+    min-width: 272px;
+    max-width: 320px;
+    animation: slideInFromLeft 1s forwards ease;
+  }
+  
+</style>
