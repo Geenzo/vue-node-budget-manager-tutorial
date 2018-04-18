@@ -10,18 +10,18 @@ Vue.use(Router);
 
 const router = new Router({
   routes: [{
-      path: '/',
-      name: 'Home',
-      component: Home,
-      meta: {
-        requiredAuth: true,
-      },
+    path: '/',
+    name: 'Home',
+    component: Home,
+    meta: {
+      requiredAuth: true,
     },
-    {
-      path: '/login',
-      name: 'Authentication',
-      component: Authentication,
-    }
+  },
+  {
+    path: '/login',
+    name: 'Authentication',
+    component: Authentication,
+  },
   ],
 });
 

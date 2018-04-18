@@ -61,9 +61,10 @@
 </template>
 
 <script>
-  import Authentication from '@/components/pages/Authentication'
+  import Authentication from '@/components/pages/Authentication';
+  
   export default {
-    data () {
+    data() {
       return {
         snackbar: false,
         validLogin: false,
@@ -71,28 +72,28 @@
         signUpVisible: false,
         loginPasswordVisible: false,
         signUpPasswordVisible: false,
-        rules: [ (value) => !!value || 'This field is required'],
+        rules: [(value) => !!value || 'This field is required'],
         credentials: {
           username: '',
-          password: ''
+          password: '',
         },
         newUser: {
           username: '',
-          password: ''
+          password: '',
         },
-        message: ''
-      }
+        message: '',
+      };
     },
     methods: {
-      submitAuthentication () {
-        Authentication.authenticate(this, this.credentials, '/')
+      submitAuthentication() {
+        Authentication.authenticate(this, this.credentials, '/');
       },
 
-      submitSignUp () {
-        Authentication.signup(this, this.newUser, '/')
-      }
-    }
-  }
+      submitSignUp() {
+        Authentication.signup(this, this.newUser, '/');
+      },
+    },
+  };
 </script>
 
 <style lang="scss">

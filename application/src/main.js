@@ -6,7 +6,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
-import ('../node_modules/vuetify/dist/vuetify.min.css');
+import('../node_modules/vuetify/dist/vuetify.min.css');
 
 Vue.use(VueCookie);
 Vue.use(Vuetify);
