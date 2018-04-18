@@ -16,7 +16,8 @@ export default {
   @import "./assets/styles";
 
   body {
-    background: url('./assets/images/background.jpg') no-repeat center center fixed;
+    background: url('./assets/images/background.jpg') no-repeat 50% fixed;
+    background-size: cover;
     &:after {
       content: '';
       position: fixed;

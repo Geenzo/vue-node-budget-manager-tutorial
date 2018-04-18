@@ -59,7 +59,7 @@ export default {
     else this.user.authenticated = false;
   },
 
-  getAuthenticationHeader() {
+  getAuthenticationHeader(context) {
     return `Bearer ${context.$cookie.get('token')}`;
   },
 
