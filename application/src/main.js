@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Authentication from '@/components/pages/Authentication';
 import VueCookie from 'vue-cookie';
 import Vuetify from 'vuetify';
 import Vue from 'vue';
@@ -12,6 +13,8 @@ Vue.use(VueCookie);
 Vue.use(Vuetify);
 
 Vue.config.productionTip = false;
+
+Authentication.checkAuthentication();
 
 /* eslint-disable no-new */
 new Vue({
