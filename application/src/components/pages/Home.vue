@@ -13,7 +13,7 @@
   import Axios from 'axios';
   import Authentication from '@/components/pages/Authentication';
 
-  const BudgetManagerAPI = `https://${window.location.hostname}:3001`;
+  const BudgetManagerAPI = `http://${window.location.hostname}:3001`;
   export default {
     data () {
       return {
