@@ -21,6 +21,11 @@ const Schema = mongoose.Schema({
         required: true
     },
 
+    description: {
+        type: String,
+        required: true
+    },
+
     client_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Client'
