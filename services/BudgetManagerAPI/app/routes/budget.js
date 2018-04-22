@@ -1,3 +1,7 @@
+const passport = require('passport'),
+    config = require('@config'),
+    models = require('@BudgetManager/app/setup');
+    
 module.exports = (app) => {
     const api = app.BudgetManagerAPI.app.api.budget;
 
