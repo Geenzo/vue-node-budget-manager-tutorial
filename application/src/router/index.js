@@ -9,7 +9,7 @@ import Authentication from '@/components/pages/Authentication/Authentication';
 
 // Global components
 import Header from '@/components/Header';
-import BudgetList from '@/components/Budget/BudgetList';
+import BudgetList from '@/components/List/List';
 
 Vue.component('app-header', Header);
 Vue.component('budget-list', BudgetList);

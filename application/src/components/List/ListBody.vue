@@ -1,10 +1,14 @@
 <template>
-  <section class="l-budget-body">
-      <div class="md-budget" v-if="budgets != null" v-for="budget in budgets">
-          <div class="md-budget-info white--text">{{ budget.client }}</div>
-          <div class="md-budget-info white--text">{{ budget.title }}</div>
-          <div class="md-budget-info white--text">{{ budget.state }}</div>
-          <div class="l-budget-actions">
+  <section class="l-list-body">
+      <div class="md-list-item" 
+            v-if="data != null"
+            v-for="item in data">
+
+          <div class="md-info white--text" v-for="info in item" v-if="info != item._id">
+              {{ info }}
+          </div>
+
+          <div class="l-actions">
               <v-btn small flat color="light-blue lighten-1">
                   <v-icon small>visibility</v-icon>
               </v-btn>
@@ -21,7 +25,7 @@
 
 <script>
     export default {
-        props: ['budgets']
+        props: ['data']
     }
 </script>
 
