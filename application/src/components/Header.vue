@@ -1,21 +1,25 @@
 <template>
     <header class="1-header-container">
-        <v-layout row wrap>
+        <v-layout row wrap :class="budgetsVisible ? 'l-budgets-header' : 'l-clients-header'">
             <v-flex xs12 md5>
                 <v-text-field v-model="search"
                                 label="Search"
                                 append-icon="search"
-                                color="light-blue lighten-1">
+                                color="budgetsVisible ? 'light-blue lighten-1' : 'green lighten-1'">
                 </v-text-field>
             </v-flex>
 
             <v-flex xs12 offset-md1 md1>
-                <v-btn block color="light-blue lighten-1">Clients</v-btn>
+                <v-btn block 
+                    :color="budgetsVisible ? 'light-blue lighten-1' : 'green lighten-1'"
+                    @click.native="$emit('toggleVisibleData')">
+                    {{ budgetsVisible ? "Clients" : "Budgets" }}
+                </v-btn>
             </v-flex>
 
             <v-flex xs12 offset-md1 md2>
                 <v-select label="Status"
-                            color="light-blue lighten-1"
+                            :color="budgetsVisible ? 'light-blue lighten-1' : 'green lighten-1'"
                             v-model="status"
                             :items="statusItems"
                             single-line>
@@ -32,6 +36,7 @@
 <script>
     import Authentication from '@/components/pages/Authentication';
     export default {
+        props: ['budgetsVisible'],
         data() {
             return {
                 search: '',
@@ -58,8 +63,16 @@
         padding: 0 15px;
         min-width: 272px;
 
-        label, input, .icon, .input-group__selections__comma {
-            color: #29b6f6!important;
+        .l-budgets-header {
+            label, input, .icon, .input-group__selections__comma {
+                color: #29b6f6!important;
+            }
+        }
+
+        .l-clients-header {
+            label, input, .icon, .input-group__selections__comma {
+                color: #66bb6a!important;
+            }
         }
 
         .input-group__details {

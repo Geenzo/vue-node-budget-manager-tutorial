@@ -4,11 +4,13 @@
             v-if="data != null"
             v-for="item in data">
 
-          <div class="md-info white--text" v-for="info in item" v-if="info != item._id">
+          <div :class="budgetsVisible ? 'md-info white--text' : 'md-client-info white--text'" 
+            v-for="info in item" 
+            v-if="info != item._id">
               {{ info }}
           </div>
 
-          <div class="l-actions">
+          <div :class="budgetsVisible ? 'l-budget-actions white--text' : 'l-client-actions white--text'">
               <v-btn small flat color="light-blue lighten-1">
                   <v-icon small>visibility</v-icon>
               </v-btn>
@@ -25,18 +27,18 @@
 
 <script>
     export default {
-        props: ['data']
+        props: ['data', 'budgetsVisible']
     }
 </script>
 
 <style lang="scss">
     @import "./../../assets/styles";
 
-    .l-budget-body {
+    .l-list-body {
         display: flex;
         flex-direction: column;
 
-        .md-budget {
+        .md-list-item {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -70,19 +72,33 @@
                     justify-content: flex-start;
                 }
             }
-        }
 
-        .l-budget-action {
-            flex-basis: 25%;
-            display: flex;
-            background-color: rgba(0, 175, 255, 0.45);
-            border: 1px solid $border-color-input;
-            align-items: center;
-            justify-content: center;
+            .md-client-info {
+                @extend .md-budget-info;
+                background-color: rgba(102, 187, 106, 0.45)!important;
 
-            .btn {
-                min-width: 45px !important;
-                margin: 0 5px !important;
+                &:nth-of-type(2) {
+                    text-transform: none;
+                }
+            }
+
+            .l-budget-actions {
+                flex-basis: 25%;
+                display: flex;
+                background-color: rgba(0, 175, 255, 0.45);
+                border: 1px solid $border-color-input;
+                align-items: center;
+                justify-content: center;
+
+                .btn {
+                    min-width: 45px !important;
+                    margin: 0 5px !important;
+                }
+            }
+
+            .l-client-actions {
+                @extend .l-budget-actions;
+                background-color: rgba(102, 187, 106, 0.45)!important;
             }
         }
     }
