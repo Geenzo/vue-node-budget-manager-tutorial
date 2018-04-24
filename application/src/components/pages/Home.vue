@@ -186,7 +186,7 @@
           headers: { 'Authorization': Authentication.getAuthenticationHeader(this) },
           params: { user_id: this.$cookie.get('user_id') }
         }).then(({data}) => {
-          this.clients = this.dataParser(data, '_id', 'client', 'email', 'phone')
+          this.clients = this.dataParser(data, 'name', 'email', '_id', 'phone')
         }).catch(error => {
           this.errorHandler(error)
         })
@@ -246,7 +246,7 @@
           this.snackbar = true
           this.message = res.data.message
           this.snackColor = 'green lighten-1'
-          this.getAllBudget()
+          this.getAllBudgets()
         })
         .catch(error => {
           this.errorHandler(error)
@@ -403,7 +403,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "./../../assets/styles";
 
   .l-home {
