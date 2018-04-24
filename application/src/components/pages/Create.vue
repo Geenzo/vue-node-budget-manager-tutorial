@@ -22,7 +22,7 @@
     import BudgetCreation from './../Creation/BudgetCreation'
     import ClientCreation from './../Creation/ClientCreation'
     import BudgetEdit from './../Creation/BudgetEdit'
-    import ClientEdit from './../Creation/CreationEdit'
+    import ClientEdit from './../Creation/ClientEdit'
     export default {
         props: [
             'budgetCreation', 'clients', 'saveBudget',
