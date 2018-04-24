@@ -51,7 +51,7 @@
       </v-form>
     </div>
 
-    <v-snackbar timeout="6000"
+    <v-snackbar :timeout="timeout"
                 bottom="bottom"
                 color="red lighten-1"
                 v-model="snackbar">
@@ -72,6 +72,7 @@
         signUpVisible: false,
         loginPasswordVisible: false,
         signUpPasswordVisible: false,
+        timeout: 6000,
         rules: [(value) => !!value || 'This field is required'],
         credentials: {
           username: '',
