@@ -40,7 +40,7 @@
         props: ['budgetsVisible', 'selectState', 'search'],
         data() {
             return {
-                search: '',
+                searchValue: '',
                 status: '',
                 statusItems: [
                     'all', 'approved', 'denied', 'waiting', 'writing', 'editing'
@@ -49,7 +49,7 @@
         },
         watch: {
             'searchValue': function () {
-                this.$emite('input', this.searchValue)
+                this.$emit('input', this.searchValue)
             }
         },
         created () {
@@ -94,7 +94,7 @@
       margin-top: 15px;
     }
   }
-  
+
   .list__tile__title, .input-group__selections {
     text-transform: uppercase !important;
   }
