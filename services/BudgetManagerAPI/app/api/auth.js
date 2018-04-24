@@ -23,7 +23,8 @@ api.login = (User) => (req, res) => {
           res.json({
             success: true,
             message: 'Token granted',
-            token
+            token,
+            user: user
           });
         } else {
           res.status(401).send({
