@@ -7,7 +7,7 @@
                       prepend-icon="account_box"
                       :rules="rules"
                       required
-                      color="light-blue lighten-1" >
+                      color="light-blue lighten-1">
         </v-text-field>
 
         <v-text-field label="Password"
@@ -21,8 +21,8 @@
                       required>
         </v-text-field>
 
-        <v-btn flat color="light-blue lighten-1" @click.native="signUpVisible = true">Create account</v-btn>
-        <v-btn color="light-blue lighten-1" @click.native="submitAuthentication()">Login</v-btn>
+        <v-btn block flat color="light-blue lighten-1" @click.native="signUpVisible = true">Create account</v-btn>
+        <v-btn block color="light-blue lighten-1" @click.native="submitAuthentication()">Login</v-btn>
       </v-form>
     </div>
 
@@ -36,7 +36,7 @@
                       color="light-blue lighten-1">
         </v-text-field>
 
-        <v-text-field label="password"
+        <v-text-field label="Password"
                       v-model="newUser.password"
                       prepend-icon="lock"
                       :rules="rules"
@@ -55,16 +55,15 @@
                 bottom="bottom"
                 color="red lighten-1"
                 v-model="snackbar">
-    {{ message }}
+      {{ message }}
     </v-snackbar>
   </div>
 </template>
 
 <script>
-  import Authentication from '@/components/pages/Authentication';
-  
+  import Authentication from '@/components/pages/Authentication'
   export default {
-    data() {
+    data () {
       return {
         snackbar: false,
         validLogin: false,
@@ -73,28 +72,28 @@
         loginPasswordVisible: false,
         signUpPasswordVisible: false,
         timeout: 6000,
-        rules: [(value) => !!value || 'This field is required'],
+        rules: [ (value) => !!value || 'This field is required' ],
         credentials: {
           username: '',
-          password: '',
+          password: ''
         },
         newUser: {
           username: '',
-          password: '',
+          password: ''
         },
-        message: '',
-      };
+        message: ''
+      }
     },
     methods: {
-      submitAuthentication() {
-        Authentication.authenticate(this, this.credentials, '/');
+      submitAuthentication () {
+        Authentication.authenticate(this, this.credentials, '/')
       },
 
-      submitSignUp() {
-        Authentication.signup(this, this.newUser, '/');
-      },
-    },
-  };
+      submitSignUp () {
+        Authentication.signup(this, this.newUser, '/')
+      }
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -107,8 +106,15 @@
     min-width: 272px;
     max-width: 320px;
     animation: bounceIn 1s forwards ease;
+
     label, input, .icon {
       color: #29b6f6!important;
+    }
+
+    .input-group__details {
+      &:before {
+        background-color: $border-color-input !important;
+      }
     }
   }
 
@@ -116,5 +122,4 @@
     @extend .l-auth;
     animation: slideInFromLeft 1s forwards ease;
   }
-  
 </style>
