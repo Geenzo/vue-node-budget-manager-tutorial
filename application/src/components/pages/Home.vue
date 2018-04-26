@@ -187,7 +187,7 @@
           params: { user_id: this.$cookie.get('user_id') }
         }).then(({data}) => {
           this.clients = this.dataParser(data, 'name', 'email', '_id', 'phone')
-        }).catch(error => {
+        }).catch(error => { 
           this.errorHandler(error)
         })
       },
@@ -303,7 +303,7 @@
 
       saveClient (client) {
         Axios.post(`${BudgetManagerAPI}/api/v1/client`, client, {
-          headers: { 'Authprozatopn': Authentication.getAuthenticationHeader(this) },
+          headers: { 'Authorization': Authentication.getAuthenticationHeader(this) },
           params: { user_id: this.$cookie.get('user_id') }
         })
         .then(res => {

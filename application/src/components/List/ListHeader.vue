@@ -17,7 +17,7 @@
 <style lang="scss">
     @import "./../../assets/styles";
 
-    .l-budget-header {
+    .l-list-header {
         display: none;
         width: 100%;
 
@@ -27,7 +27,7 @@
         }
     }
 
-    .md-budget-header {
+    .md-list-header {
         width: 100%;
         background-color: $background-color;
         border: 1px solid $border-color-input;

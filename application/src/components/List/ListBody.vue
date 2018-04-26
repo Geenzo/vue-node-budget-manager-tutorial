@@ -4,7 +4,7 @@
             v-if="data != null && parsedBudgets === null"
             v-for="item in data">
 
-          <div :class="budgetsVisible ? 'md-info white--text' : 'md-client-info white--text'" 
+          <div :class="budgetsVisible ? 'md-budget-info white--text' : 'md-client-info white--text'" 
             v-for="info in item" 
             v-if="info != item._id && info != item.client_id">
               {{ info }}
