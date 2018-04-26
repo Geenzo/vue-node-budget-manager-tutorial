@@ -2,6 +2,8 @@
 This is an app following a tutorial for a budget manager created with vue.js and node
 
 ## Setup
+
+```bash
 # To install the RESTful API dependencies go to
 # your root folder
 npm i
@@ -21,3 +23,4 @@ npm run dev
 # For more details about npm scripts on application
 # like how to build for production, read the README
 # located inside applications folder
+```
