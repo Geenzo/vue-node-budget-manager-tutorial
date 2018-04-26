@@ -1,13 +1,13 @@
 <template>
   <main class="l-home-page">
-    <app-header :budgetVisible="budgetsVisible" 
-      @toggleVissibleData="budgetsVisible = !budgetsVisible; budgetCreation = !budgetCreation"
+    <app-header :budgetsVisible="budgetsVisible"
+      @toggleVisibleData="budgetsVisible = !budgetsVisible; budgetCreation = !budgetCreation"
       :selectState="selectState"
       :search="search"
       v-model="search">
     </app-header>
 
-    <div calss="l-home">
+    <div class="l-home">
       <h4 class="white--text text-xs-center my-0">
         Focus Budget Manager
       </h4>
@@ -36,7 +36,6 @@
         :saveClient="saveClient"
         :fixClientNameAndUpdate="fixClientNameAndUpdate"
         :updateClient="updateClient">
-
       </create>
     </div>
 
@@ -69,7 +68,7 @@
                 small
                 fab
                 slot="activator"
-                @click.native="budgetCreation = true; listPage = false, editPage = false; createPage = true">
+                   @click.native="budgetCreation = true; listPage = false; editPage = false; createPage = true">
                 <v-icon>assignment</v-icon>
           </v-btn>
           <span>Add new Budget</span>  
@@ -116,10 +115,10 @@
 </template>
 
 <script>
-  import Axios from 'axios';
-  import Authentication from '@/components/pages/Authentication';
-  import ListHeader from './../List/ListHeader';
-  import ListBody from './../List/ListBody';
+  import Axios from 'axios'
+  import Authentication from '@/components/pages/Authentication'
+  import ListHeader from './../List/ListHeader'
+  import ListBody from './../List/ListBody'
 
   const BudgetManagerAPI = `http://${window.location.hostname}:3001`;
 
@@ -145,7 +144,7 @@
         message: '',
         fab: false,
         listPage: true,
-        createPage: true,
+        createPage: false,
         editPage: false,
         budgetCreation: true,
         budgetEdit: true,
@@ -161,7 +160,7 @@
       'search': function () {
         if (this.search !== null || this.search !== '') {
           const searchTerm = this.search
-          const regex = new RegExp(`(${searchTerm})`, 'g')
+          const regex = new RegExp(`^(${searchTerm})`, 'g')
           const results = this.budgets.filter(budget => budget.client.match(regex))
           this.parsedBudgets = results
         } else {
@@ -270,7 +269,7 @@
         })
         .then(() => {
           this.snackbar = true
-          this.message = 'Budget Updated'
+          this.message = 'Budget updated'
           this.snackColor = 'green lighten-1'
           this.listPage = true
           this.budgetCreation = false
@@ -293,7 +292,7 @@
           this.snackColor = 'green lighten-1'
           this.listPage = true
           this.budgetCreation = false
-          this.budgetVisible = false
+          this.budgetsVisible = false
           this.getAllClients()
         })
         .catch(error => {
@@ -392,7 +391,7 @@
       getBudgetsByState (state) {
         Axios.get(`${BudgetManagerAPI}/api/v1/budget/state`, {
           headers: { 'Authorization': Authentication.getAuthenticationHeader(this) },
-          params: { user_id: this.$cookie.get('user_id'), state}
+          params: { user_id: this.$cookie.get('user_id'), state }
         }).then(({data}) => {
           this.budgets = this.dataParser(data, '_id', 'client', 'title', 'state', 'client_id')
         }).catch(error => {
@@ -417,4 +416,3 @@
     justify-content: center !important;
   }
 </style>
-
