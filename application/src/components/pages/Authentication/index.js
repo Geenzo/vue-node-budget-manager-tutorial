@@ -1,56 +1,53 @@
-import Axios from 'axios';
-import router from '@/router';
+import Axios from 'axios'
+import router from '@/router'
 
 const BudgetManagerAPI = `http://${window.location.hostname}:3001`;
 
 export default {
-  user: {
-    authentication: false,
-  },
+  user: { authenticated: false },
 
-  authenticate(context, credentials, redirect) {
+  authenticate (context, credentials, redirect) {
     Axios.post(`${BudgetManagerAPI}/api/v1/auth`, credentials)
-      .then(({ data }) => {
-        context.$cookie.set('token', data.token, '1D');
-        context.$cookie.set('user_id', data.user._id, '1D');
-        context.validLogin = true;
+        .then(({data}) => {
+          context.$cookie.set('token', data.token, '1D')
+          context.$cookie.set('user_id', data.user._id, '1D')
+          context.validLogin = true
 
-        this.user.authenticated = true;
+          this.user.authenticated = true
 
-        if (redirect) router.push(redirect);
-      }).catch(({response: { data } }) => {
-        context.snackbar = true;
-        context.message = data.message;
-      });
+          if (redirect) router.push(redirect)
+        }).catch(({response: {data}}) => {
+          context.snackbar = true
+          context.message = data.message
+        })
   },
 
-  signup(context, credentials, redirect) {
+  signup (context, credentials, redirect) {
     Axios.post(`${BudgetManagerAPI}/api/v1/signup`, credentials)
       .then(() => {
-        context.validSignUp = true;
+          context.validSignUp = true
 
-        this.authenticate(context, credentials, redirect);
-      }).catch(({ response: { data } }) => {
-        context.snackbar = true;
-        context.message = data.message;
-      });
+          this.authenticate(context, credentials, redirect)
+        }).catch(({response: {data}}) => {
+          context.snackbar = true
+          context.message = data.message
+        })
   },
 
-  signout(context, redirect) {
-    context.$cookie.delete('token');
-    context.$cookie.delete('user_id');
-    this.user.authenticated = false;
+  signout (context, redirect) {
+    context.$cookie.delete('token')
+    context.$cookie.delete('user_id')
+    this.user.authenticated = false
 
-    if (redirect) router.push(redirect);
+    if (redirect) router.push(redirect)
   },
 
-  checkAuthentication() {
-    const token = document.cookie;
-    this.user.authenticated = !!token;
+  checkAuthentication () {
+    const token = document.cookie
+    this.user.authenticated = !!token
   },
 
-  getAuthenticationHeader(context) {
-    return `Bearer ${context.$cookie.get('token')}`;
-  },
-
-};
+  getAuthenticationHeader (context) {
+    return `Bearer ${context.$cookie.get('token')}`
+  }
+}
